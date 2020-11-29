@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %} New Category {% endblock title %}
+
+{% block content %}
+<div class="col">
+    <div class="row">
+        <h3>Add New Category</h3>
+    </div>
+    <div class="row">
+        <form action="{{ url_for('shop.new_category') }}" method="POST">
+            {{ create_category.hidden_tag() }}
+            <div class="form-group">
+                {{ create_category.name(class="form-control", placeholder="Category Name")}}
+            </div>
+            {{ create_category.add_category(class="btn btn-info btn-block")}}
+        </form>
+    </div>
+</div>
+{% endblock content %}

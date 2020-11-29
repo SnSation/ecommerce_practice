@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %} Item {% endblock title %}
+
+{% block content %}
+<div class="col">
+    <div class="row">
+        <h1>{{ product.name }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <!-- Sidebar Search -->
+        </div>
+        <div class="col-md-10">
+            <!-- Search Results -->
+            <ul class="list-inline text-center product_list">
+                <li class="list-inline-item text-center product_item">
+                    <img src="{{ product.image }}" /> <br>
+                    Name: {{ product.name }} <br />
+                    Description: {{ product.description }} <br />
+                    Price: {{ product.price }} <br />
+                    <a href="{{ url_for('shop.add_to_cart', id=product.id) }}" class="btn btn-success btn-block">Add to Cart</a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}

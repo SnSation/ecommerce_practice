@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %} Cart {% endblock title %}
+
+{% block content %}
+<div class="col">
+    <div class="row">
+        <h1>Cart</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <!-- Sidebar Search -->
+        </div>
+        <div class="col-md-10">
+            <!-- Search Results -->
+            <ul class="list-inline text-center product_list">
+                {% for product in contents %}
+                <li class="list-inline-item text-center product_item">
+                    <img src="{{ product.image }}" /> <br>
+                    <a href="{{ url_for('shop.item', id=product.id) }}" class="btn btn-success btn-block">Name: {{ product.name }}</a> <br />
+                    Description {{ product.description }} <br />
+                    Price: {{ product.price }} <br />
+                    <a href="{{ url_for('shop.remove_from_cart', id=product.id) }}" class="btn btn-success btn-block">Remove Item</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}
